@@ -34,7 +34,8 @@
         <div class="swiper-container fl">
             <div class="swiper-wrapper">
                 <!-- 配置了轮播图则显示后台配置的轮播图 -->
-                <th:block th:unless="${#lists.isEmpty(carousels)}">
+                <!-- 注释掉后台提供的可以跳转页面的轮播图 -->
+                <!-- <th:block th:unless="${#lists.isEmpty(carousels)}">
                     <th:block th:each="carousel : ${carousels}">
                         <div class="swiper-slide">
                             <a th:href="@{${carousel.redirectUrl}}">
@@ -42,7 +43,7 @@
                             </a>
                         </div>
                     </th:block>
-                </th:block>
+                </th:block> -->
                 <!-- 未配置轮播图则显示默认的三张轮播图 -->
                 <th:block th:if="${#lists.isEmpty(carousels)}">
                     <div class="swiper-slide">
