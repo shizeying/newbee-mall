@@ -78,14 +78,15 @@ public class HiveDruidConfig {
 		}
 		
 		@Bean("hiveSqlSessionFactory")
-		public SqlSessionFactory masterSqlSessionFactory(
+		public SqlSessionFactory sloveSqlSessionFactory(
 				@Qualifier("hiveDruidDataSource") DataSource dataSource) throws Exception {
 				// 将 SqlSessionFactoryBean 替换为 MybatisSqlSessionFactoryBean， 否则 mybatis-plus 提示 Invalid bound statement (not found)
 				
 				MybatisSqlSessionFactoryBean bean = new MybatisSqlSessionFactoryBean();
 				bean.setDataSource(dataSource);
 				bean.setMapperLocations(
-						new PathMatchingResourcePatternResolver().getResources("classpath:mapper/*.xml"));
+						new PathMatchingResourcePatternResolver()
+								.getResources("classpath:mapper/hive/*.xml"));
 				bean.setGlobalConfig(globalConfigByOpManager());
 				MybatisConfiguration mc = new MybatisConfiguration();
 				// 查看打印 sql 日志

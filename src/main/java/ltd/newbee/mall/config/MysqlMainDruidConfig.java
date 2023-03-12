@@ -71,7 +71,7 @@ public class MysqlMainDruidConfig {
 				return datasource;
 		}
 		
-		@Bean("globalConfigByOpManager")
+		@Bean("hiveGlobalConfigByOpManager")
 		public GlobalConfig globalConfigByOpManager() {
 				GlobalConfig globalConfig = new GlobalConfig();
 				globalConfig.setBanner(false);
@@ -81,6 +81,7 @@ public class MysqlMainDruidConfig {
 				return globalConfig;
 		}
 		
+		@Qualifier("mysqlSqlSessionFactory")
 		@Bean("mysqlSqlSessionFactory")
 		public SqlSessionFactory masterSqlSessionFactory(
 				@Qualifier("mysqlDruidDataSource") DataSource dataSource) throws Exception {
@@ -90,7 +91,7 @@ public class MysqlMainDruidConfig {
 				bean.setDataSource(dataSource);
 				bean.setMapperLocations(new PathMatchingResourcePatternResolver()
 						
-						.getResources("classpath:mapper/*.xml"));
+						.getResources("classpath:mapper/mysql/*.xml"));
 				bean.setGlobalConfig(globalConfigByOpManager());
 				MybatisConfiguration mc = new MybatisConfiguration();
 				// 查看打印 sql 日志
