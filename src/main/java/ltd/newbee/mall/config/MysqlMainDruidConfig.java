@@ -1,5 +1,7 @@
 package ltd.newbee.mall.config;
 
+import static ltd.newbee.mall.config.MysqlMainDruidConfig.PACKAGE;
+
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.core.MybatisConfiguration;
@@ -11,6 +13,7 @@ import java.sql.SQLException;
 import javax.sql.DataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionTemplate;
+import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,17 +24,21 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import com.alibaba.druid.pool.DruidDataSource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 /**
  * @author: xmz
  */
 @Configuration
 @EnableConfigurationProperties({DataSourceProperties.class, DataSourceCommonProperties.class})
+
 // 将配置类注入到 bean 容器，使 ConfigurationProperties 注解类生效
+@MapperScan(basePackages = PACKAGE, sqlSessionFactoryRef = "mysqlSqlSessionFactory")
 public class MysqlMainDruidConfig {
 		
 		private static Logger logger = LoggerFactory.getLogger(MysqlMainDruidConfig.class);
-		
+		public static final String PACKAGE = "ltd.newbee.mall.dao.mysql";
+    private static final String MAPPER_LOCATION = "classpath:mapper/mysql/*Mapper.xml";
 		@Autowired
 		private DataSourceProperties dataSourceProperties;
 		
@@ -87,22 +94,20 @@ public class MysqlMainDruidConfig {
 				@Qualifier("mysqlDruidDataSource") DataSource dataSource) throws Exception {
 				// 将 SqlSessionFactoryBean 替换为 MybatisSqlSessionFactoryBean， 否则 mybatis-plus 提示 Invalid bound statement (not found)
 				
-				MybatisSqlSessionFactoryBean bean = new MybatisSqlSessionFactoryBean();
-				bean.setDataSource(dataSource);
-				bean.setMapperLocations(new PathMatchingResourcePatternResolver()
-						
-						.getResources("classpath:mapper/mysql/*.xml"));
-				bean.setGlobalConfig(globalConfigByOpManager());
+				MybatisSqlSessionFactoryBean sessionFactory = new MybatisSqlSessionFactoryBean();
+				sessionFactory.setDataSource(dataSource);
+				 sessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver().getResources(MAPPER_LOCATION));
+				sessionFactory.setGlobalConfig(globalConfigByOpManager());
 				MybatisConfiguration mc = new MybatisConfiguration();
 				// 查看打印 sql 日志
 				// org.apache.ibatis.logging.stdout.StdOutImpl.class 只能打印到控制台
 				// org.apache.ibatis.logging.slf4j.Slf4jImpl.class 打印到具体的文件中
 				mc.setLogImpl(org.apache.ibatis.logging.slf4j.Slf4jImpl.class);
-				bean.setConfiguration(mc);
+				sessionFactory.setConfiguration(mc);
 				// 添加分页插件，不加这个，分页不生效
-				bean.setPlugins(paginationInterceptor());
+				sessionFactory.setPlugins(paginationInterceptor());
 				// 设置 mybatis 的 xml 所在位置
-				return bean.getObject();
+				return sessionFactory.getObject();
 		}
 		
 		@Bean("paginationInterceptorByOpManager")
@@ -118,4 +123,11 @@ public class MysqlMainDruidConfig {
 				@Qualifier("mysqlSqlSessionFactory") SqlSessionFactory sessionFactory) {
 				return new SqlSessionTemplate(sessionFactory);
 		}
+		
+		@Primary
+		@Bean(name = "msqlTransactionManager")
+		public DataSourceTransactionManager masterTransactionManager() {
+				return new DataSourceTransactionManager(dataSource());
+		}
+		
 }

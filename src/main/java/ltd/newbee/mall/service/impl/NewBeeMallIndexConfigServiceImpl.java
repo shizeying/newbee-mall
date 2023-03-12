@@ -10,8 +10,8 @@ package ltd.newbee.mall.service.impl;
 
 import ltd.newbee.mall.common.ServiceResultEnum;
 import ltd.newbee.mall.controller.vo.NewBeeMallIndexConfigGoodsVO;
-import ltd.newbee.mall.dao.IndexConfigMapper;
-import ltd.newbee.mall.dao.NewBeeMallGoodsMapper;
+import ltd.newbee.mall.dao.mysql.IndexConfigMapper;
+import ltd.newbee.mall.dao.mysql.NewBeeMallGoodsMapper;
 import ltd.newbee.mall.entity.IndexConfig;
 import ltd.newbee.mall.entity.NewBeeMallGoods;
 import ltd.newbee.mall.service.NewBeeMallIndexConfigService;

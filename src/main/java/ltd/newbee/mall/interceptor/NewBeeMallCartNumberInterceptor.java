@@ -10,7 +10,7 @@ package ltd.newbee.mall.interceptor;
 
 import ltd.newbee.mall.common.Constants;
 import ltd.newbee.mall.controller.vo.NewBeeMallUserVO;
-import ltd.newbee.mall.dao.NewBeeMallShoppingCartItemMapper;
+import ltd.newbee.mall.dao.mysql.NewBeeMallShoppingCartItemMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;

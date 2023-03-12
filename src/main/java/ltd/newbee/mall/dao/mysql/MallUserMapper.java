@@ -6,7 +6,7 @@
  * Copyright (c) 2019-2020 十三 all rights reserved.
  * 版权所有，侵权必究！
  */
-package ltd.newbee.mall.dao;
+package ltd.newbee.mall.dao.mysql;
 
 import ltd.newbee.mall.entity.MallUser;
 import ltd.newbee.mall.util.PageQueryUtil;

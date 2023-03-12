@@ -1,5 +1,9 @@
 package ltd.newbee.mall.config;
 
+
+import static ltd.newbee.mall.config.HiveDruidConfig.PACKAGE;
+
+import com.alibaba.druid.pool.DruidDataSource;
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.core.MybatisConfiguration;
@@ -11,6 +15,7 @@ import java.sql.SQLException;
 import javax.sql.DataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionTemplate;
+import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,26 +23,29 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import com.alibaba.druid.pool.DruidDataSource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 
 @Configuration
 @EnableConfigurationProperties({DataSourceProperties.class, DataSourceCommonProperties.class})
+@MapperScan(basePackages = PACKAGE, sqlSessionFactoryRef = "hiveSqlSessionFactory")
 // 将配置类注入到 bean 容器，使 ConfigurationProperties 注解类生效
 public class HiveDruidConfig {
 		
-		private static Logger logger = LoggerFactory.getLogger(HiveDruidConfig.class);
-		
+		private static       Logger               logger          = LoggerFactory.getLogger(
+				HiveDruidConfig.class);
+		public static final  String               PACKAGE         = "ltd.newbee.mall.dao.hive";
+		private static final String               MAPPER_LOCATION = "classpath:mapper/hive/*.xml";
 		@Autowired
-		private DataSourceProperties dataSourceProperties;
+		private              DataSourceProperties dataSourceProperties;
 		
 		@Autowired
 		private DataSourceCommonProperties dataSourceCommonProperties;
 		
 		@Bean("hiveDruidDataSource") // 新建 bean 实例
 		@Qualifier("hiveDruidDataSource")// 标识
-		public DataSource dataSource() {
+		public DataSource hiveDataSource() {
 				DruidDataSource datasource = new DruidDataSource();
 				
 				// 配置数据源属性
@@ -86,7 +94,7 @@ public class HiveDruidConfig {
 				bean.setDataSource(dataSource);
 				bean.setMapperLocations(
 						new PathMatchingResourcePatternResolver()
-								.getResources("classpath:mapper/hive/*.xml"));
+								.getResources(MAPPER_LOCATION));
 				bean.setGlobalConfig(globalConfigByOpManager());
 				MybatisConfiguration mc = new MybatisConfiguration();
 				// 查看打印 sql 日志
@@ -112,5 +120,10 @@ public class HiveDruidConfig {
 		public SqlSessionTemplate primarySqlSessionTemplate(
 				@Qualifier("hiveSqlSessionFactory") SqlSessionFactory sessionFactory) {
 				return new SqlSessionTemplate(sessionFactory);
+		}
+		
+		@Bean(name = "hiveTransactionManager")
+		public DataSourceTransactionManager masterTransactionManager() {
+				return new DataSourceTransactionManager(hiveDataSource());
 		}
 }

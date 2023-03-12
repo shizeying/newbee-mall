@@ -10,10 +10,10 @@ package ltd.newbee.mall.service.impl;
 
 import ltd.newbee.mall.common.*;
 import ltd.newbee.mall.controller.vo.*;
-import ltd.newbee.mall.dao.NewBeeMallGoodsMapper;
-import ltd.newbee.mall.dao.NewBeeMallOrderItemMapper;
-import ltd.newbee.mall.dao.NewBeeMallOrderMapper;
-import ltd.newbee.mall.dao.NewBeeMallShoppingCartItemMapper;
+import ltd.newbee.mall.dao.mysql.NewBeeMallGoodsMapper;
+import ltd.newbee.mall.dao.mysql.NewBeeMallOrderItemMapper;
+import ltd.newbee.mall.dao.mysql.NewBeeMallOrderMapper;
+import ltd.newbee.mall.dao.mysql.NewBeeMallShoppingCartItemMapper;
 import ltd.newbee.mall.entity.NewBeeMallGoods;
 import ltd.newbee.mall.entity.NewBeeMallOrder;
 import ltd.newbee.mall.entity.NewBeeMallOrderItem;

@@ -11,7 +11,7 @@ package ltd.newbee.mall.service.impl;
 import ltd.newbee.mall.common.Constants;
 import ltd.newbee.mall.common.ServiceResultEnum;
 import ltd.newbee.mall.controller.vo.NewBeeMallUserVO;
-import ltd.newbee.mall.dao.MallUserMapper;
+import ltd.newbee.mall.dao.mysql.MallUserMapper;
 import ltd.newbee.mall.entity.MallUser;
 import ltd.newbee.mall.service.NewBeeMallUserService;
 import ltd.newbee.mall.util.*;

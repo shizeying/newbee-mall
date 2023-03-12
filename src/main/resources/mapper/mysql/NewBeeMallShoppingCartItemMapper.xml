@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="ltd.newbee.mall.dao.NewBeeMallShoppingCartItemMapper">
+<mapper namespace="ltd.newbee.mall.dao.mysql.NewBeeMallShoppingCartItemMapper">
     <resultMap id="BaseResultMap" type="ltd.newbee.mall.entity.NewBeeMallShoppingCartItem">
         <id column="cart_item_id" jdbcType="BIGINT" property="cartItemId"/>
         <result column="user_id" jdbcType="BIGINT" property="userId"/>

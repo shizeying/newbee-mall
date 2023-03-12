@@ -10,7 +10,7 @@ package ltd.newbee.mall.service.impl;
 
 import java.util.Objects;
 import ltd.newbee.mall.entity.AdminUser;
-import ltd.newbee.mall.dao.AdminUserMapper;
+import ltd.newbee.mall.dao.mysql.AdminUserMapper;
 import ltd.newbee.mall.service.AdminUserService;
 import ltd.newbee.mall.util.MD5Util;
 import org.springframework.stereotype.Service;
