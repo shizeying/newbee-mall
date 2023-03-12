@@ -11,7 +11,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @Data
 public class DataSourceProperties {
 		
-		final static String              DS = "spring.datasource";
+		static final  String              DS = "spring.datasource";
 		private      Map<String, String> mysqlMain;
 		private      Map<String, String> hive;
 		private      Map<String, String> commonConfig;
