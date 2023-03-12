@@ -8,7 +8,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @Data
 public class DataSourceCommonProperties {
 		
-		final static String  DS          = "spring.datasource.common-config";
+		static final String  DS          = "spring.datasource.common-config";
 		private      int     initialSize = 10;
 		private      int     minIdle;
 		private      int     maxIdle;
