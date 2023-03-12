@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    mysqlMain: #mysql主数据源，可关联mybatis
+      type: com.alibaba.druid.pool.DruidDataSource
+      url: jdbc:mysql://114.96.99.223:33061/newbee_mall_db?useUnicode=true&serverTimezone=Asia/Shanghai&characterEncoding=utf8&autoReconnect=true&useSSL=false&allowMultiQueries=true
+      username: root
+      password: secret
+      driver-class-name: com.mysql.cj.jdbc.Driver
+    hive: #hive数据源
+      url: jdbc:hive2://127.0.0.1:31000
+      type: com.alibaba.druid.pool.DruidDataSource
+      username: root
+      password: root
+      driver-class-name: org.apache.hive.jdbc.HiveDriver
+    common-config: #连接池统一配置，应用到所有的数据源
+      initialSize: 1
+      minIdle: 1
+      maxIdle: 5
+      maxActive: 50
+      maxWait: 10000
+      timeBetweenEvictionRunsMillis: 10000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: select 'x'
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxOpenPreparedStatements: 20
+      filters: stat
