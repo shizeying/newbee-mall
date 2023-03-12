@@ -14,6 +14,5 @@ public class DataSourceProperties {
 		final static String              DS = "spring.datasource";
 		private      Map<String, String> mysqlMain;
 		private      Map<String, String> hive;
-		private      Map<String, String> presto;
 		private      Map<String, String> commonConfig;
 }
