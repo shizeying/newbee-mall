@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ltd.newbee.mall.dao.hive.MallLogMapper">
+  <resultMap id="BaseResultMap" type="ltd.newbee.mall.entity.MallLogDO">
+    <!--@mbg.generated-->
+    <!--@Table mall_log-->
+    <result column="user_name" property="userName" />
+    <result column="create_at" property="createAt" />
+    <result column="product_name" property="productName" />
+    <result column="op" property="op" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    user_name, create_at, product_name, op
+  </sql>
+  
+  
+  <select id="selectByUserName" resultMap="BaseResultMap">
+	  <!--@mbg.generated-->select
+	  <include refid="Base_Column_List"/>
+	  FROM mall_log
+	  WHERE user_name = #{userName}
+  </select>
+	
+	<insert id="insertSelective">
+		<!--@mbg.generated-->INSERT INTO mall_log(user_name, create_at, product_name, op)
+		                     VALUES (#{userName},
+		                             #{createAt},
+		                             #{productName},
+		                             #{op})
+	</insert>
+</mapper>

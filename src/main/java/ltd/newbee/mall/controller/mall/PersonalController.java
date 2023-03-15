@@ -9,14 +9,19 @@
 package ltd.newbee.mall.controller.mall;
 
 import cn.hutool.captcha.ShearCaptcha;
+import java.util.Date;
 import ltd.newbee.mall.common.Constants;
+import ltd.newbee.mall.common.OpEnum;
 import ltd.newbee.mall.common.ServiceResultEnum;
 import ltd.newbee.mall.controller.vo.NewBeeMallUserVO;
 import ltd.newbee.mall.entity.MallUser;
+import ltd.newbee.mall.event.LogEvent;
+import ltd.newbee.mall.event.SpringEventPublisher;
 import ltd.newbee.mall.service.NewBeeMallUserService;
 import ltd.newbee.mall.util.MD5Util;
 import ltd.newbee.mall.util.Result;
 import ltd.newbee.mall.util.ResultGenerator;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
@@ -30,6 +35,8 @@ public class PersonalController {
 
     @Resource
     private NewBeeMallUserService newBeeMallUserService;
+    @Autowired
+    private SpringEventPublisher publisher;
 
     @GetMapping("/personal")
     public String personalPage(HttpServletRequest request,
@@ -84,6 +91,16 @@ public class PersonalController {
         if (ServiceResultEnum.SUCCESS.getResult().equals(loginResult)) {
             //删除session中的verifyCode
             httpSession.removeAttribute(Constants.MALL_VERIFY_CODE_KEY);
+            publisher.publish(
+						LogEvent.Builder.newBuilder()
+								.withOp(OpEnum.LOGIN)
+								.withUserName(loginName)
+								.withSource(this)
+								.withProductName("")
+								
+								.build());
+            
+            
             return ResultGenerator.genSuccessResult();
         }
         //登录失败
@@ -114,6 +131,13 @@ public class PersonalController {
         if (ServiceResultEnum.SUCCESS.getResult().equals(registerResult)) {
             //删除session中的verifyCode
             httpSession.removeAttribute(Constants.MALL_VERIFY_CODE_KEY);
+            publisher.publish(
+						LogEvent.Builder.newBuilder()
+								.withOp(OpEnum.LOGIN)
+								.withUserName(loginName)
+								.withSource(this)
+								.withProductName("")
+								.build());
             return ResultGenerator.genSuccessResult();
         }
         //注册失败

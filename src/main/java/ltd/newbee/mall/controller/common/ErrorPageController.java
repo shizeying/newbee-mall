@@ -18,6 +18,12 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
+/**
+ * 错误页面controller
+ *
+ * @author zeyingshi
+ * @date 2023/03/15
+ */
 @Controller
 public class ErrorPageController implements ErrorViewResolver {
 

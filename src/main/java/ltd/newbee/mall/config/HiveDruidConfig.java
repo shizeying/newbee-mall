@@ -3,7 +3,6 @@ package ltd.newbee.mall.config;
 
 import static ltd.newbee.mall.config.HiveDruidConfig.PACKAGE;
 
-import com.alibaba.druid.pool.DruidDataSource;
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.core.MybatisConfiguration;
@@ -11,6 +10,7 @@ import com.baomidou.mybatisplus.core.config.GlobalConfig;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
 import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
+import com.zaxxer.hikari.HikariDataSource;
 import java.sql.SQLException;
 import javax.sql.DataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -46,32 +46,13 @@ public class HiveDruidConfig {
 		@Bean("hiveDruidDataSource") // 新建 bean 实例
 		@Qualifier("hiveDruidDataSource")// 标识
 		public DataSource hiveDataSource() {
-				DruidDataSource datasource = new DruidDataSource();
+				HikariDataSource datasource = new HikariDataSource();
 				
 				// 配置数据源属性
-				datasource.setUrl(dataSourceProperties.getHive().get("url"));
+				datasource.setJdbcUrl(dataSourceProperties.getHive().get("url"));
 				datasource.setUsername(dataSourceProperties.getHive().get("username"));
 				datasource.setPassword(dataSourceProperties.getHive().get("password"));
 				datasource.setDriverClassName(dataSourceProperties.getHive().get("driver-class-name"));
-				// 配置统一属性
-				datasource.setInitialSize(dataSourceCommonProperties.getInitialSize());
-				datasource.setMinIdle(dataSourceCommonProperties.getMinIdle());
-				datasource.setMaxActive(dataSourceCommonProperties.getMaxActive());
-				datasource.setMaxWait(dataSourceCommonProperties.getMaxWait());
-				datasource.setTimeBetweenEvictionRunsMillis(
-						dataSourceCommonProperties.getTimeBetweenEvictionRunsMillis());
-				datasource.setMinEvictableIdleTimeMillis(
-						dataSourceCommonProperties.getMinEvictableIdleTimeMillis());
-				datasource.setValidationQuery(dataSourceCommonProperties.getValidationQuery());
-				datasource.setTestWhileIdle(dataSourceCommonProperties.isTestWhileIdle());
-				datasource.setTestOnBorrow(dataSourceCommonProperties.isTestOnBorrow());
-				datasource.setTestOnReturn(dataSourceCommonProperties.isTestOnReturn());
-				datasource.setPoolPreparedStatements(dataSourceCommonProperties.isPoolPreparedStatements());
-				try {
-						datasource.setFilters(dataSourceCommonProperties.getFilters());
-				} catch (SQLException e) {
-						logger.error("Druid configuration initialization filter error.", e);
-				}
 				return datasource;
 		}
 		

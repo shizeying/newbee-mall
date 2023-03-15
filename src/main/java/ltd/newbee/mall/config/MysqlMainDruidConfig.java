@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.core.config.GlobalConfig;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
 import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
-import java.sql.SQLException;
+import com.zaxxer.hikari.HikariDataSource;
 import javax.sql.DataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -22,7 +22,6 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
-import com.alibaba.druid.pool.DruidDataSource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
@@ -49,32 +48,13 @@ public class MysqlMainDruidConfig {
 		@Bean("mysqlDruidDataSource") // 新建 bean 实例
 		@Qualifier("mysqlDruidDataSource")// 标识
 		public DataSource dataSource() {
-				DruidDataSource datasource = new DruidDataSource();
+				HikariDataSource datasource = new HikariDataSource();
 				
 				// 配置数据源属性
-				datasource.setUrl(dataSourceProperties.getMysqlMain().get("url"));
+				datasource.setJdbcUrl(dataSourceProperties.getMysqlMain().get("url"));
 				datasource.setUsername(dataSourceProperties.getMysqlMain().get("username"));
 				datasource.setPassword(dataSourceProperties.getMysqlMain().get("password"));
 				datasource.setDriverClassName(dataSourceProperties.getMysqlMain().get("driver-class-name"));
-				// 配置统一属性
-				datasource.setInitialSize(dataSourceCommonProperties.getInitialSize());
-				datasource.setMinIdle(dataSourceCommonProperties.getMinIdle());
-				datasource.setMaxActive(dataSourceCommonProperties.getMaxActive());
-				datasource.setMaxWait(dataSourceCommonProperties.getMaxWait());
-				datasource.setTimeBetweenEvictionRunsMillis(
-						dataSourceCommonProperties.getTimeBetweenEvictionRunsMillis());
-				datasource.setMinEvictableIdleTimeMillis(
-						dataSourceCommonProperties.getMinEvictableIdleTimeMillis());
-				datasource.setValidationQuery(dataSourceCommonProperties.getValidationQuery());
-				datasource.setTestWhileIdle(dataSourceCommonProperties.isTestWhileIdle());
-				datasource.setTestOnBorrow(dataSourceCommonProperties.isTestOnBorrow());
-				datasource.setTestOnReturn(dataSourceCommonProperties.isTestOnReturn());
-				datasource.setPoolPreparedStatements(dataSourceCommonProperties.isPoolPreparedStatements());
-				try {
-						datasource.setFilters(dataSourceCommonProperties.getFilters());
-				} catch (SQLException e) {
-						logger.error("Druid configuration initialization filter error.", e);
-				}
 				return datasource;
 		}
 		
