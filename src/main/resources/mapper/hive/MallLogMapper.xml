@@ -29,4 +29,11 @@
 		                             #{productName},
 		                             #{op})
 	</insert>
+	
+	<select id="selectAll" resultMap="BaseResultMap">
+		<!--@mbg.generated-->
+		SELECT
+		<include refid="Base_Column_List"/>
+		FROM mall_log
+	</select>
 </mapper>

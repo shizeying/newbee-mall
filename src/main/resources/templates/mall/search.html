@@ -1,7 +1,7 @@
 <!-- Copyright (c) 2019-2020 十三 all rights reserved. -->
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="mall/header::head-fragment('NewBee商城-搜索','search')">
+<head th:replace="mall/header::head-fragment('电商-搜索','search')">
 </head>
 <body>
 <header th:replace="mall/header::header-fragment"></header>
@@ -14,11 +14,11 @@
         <div class="category_bar">
             <th:block th:if="${searchPageCategoryVO!=null}">
                 <div class="fm c">
-                    <a href="##" class="qqq" th:text="${searchPageCategoryVO.secondLevelCategoryName}">newbee-mall</a>
+                    <a href="##" class="qqq" th:text="${searchPageCategoryVO.secondLevelCategoryName}">电商</a>
                     <div>
                         <th:block th:each="thirdLevelCategory : ${searchPageCategoryVO.thirdLevelCategoryList}">
                             <a th:href="@{${'/search?goodsCategoryId='+thirdLevelCategory.categoryId}}"
-                               th:text="${thirdLevelCategory.categoryName}">newbee-mall</a>
+                               th:text="${thirdLevelCategory.categoryName}">电商</a>
                         </th:block>
                     </div>
                 </div>

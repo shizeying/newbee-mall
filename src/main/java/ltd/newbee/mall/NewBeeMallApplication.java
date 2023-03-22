@@ -18,9 +18,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * @author 13
- * @qq交流群 796794009
- * @email 2449207463@qq.com
- * @link https://github.com/newbee-ltd
  */
 @SpringBootApplication
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
@@ -34,16 +31,8 @@ public class NewBeeMallApplication implements ApplicationRunner {
 		private final MallLogService mallLogService;
 		@Override
 		public void run(ApplicationArguments args) throws Exception {
-				publisher.publish(
-						LogEvent.Builder.newBuilder()
-								.withOp(OpEnum.ADD)
-								.withUserName("13")
-								.withSource(this)
-								.withProductName("13")
-								
-								.build());
+		
 				
-				mallLogService.selectByUserName("13").forEach(System.out::println);
-				
+		
 		}
 }

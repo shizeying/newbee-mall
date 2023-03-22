@@ -3,7 +3,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>NewBee商城-登录</title>
+    <title>电商-登录</title>
     <link rel="stylesheet" th:href="@{mall/css/common.css}">
     <link rel="stylesheet" th:href="@{mall/styles/login.css}">
     <link rel="stylesheet" th:href="@{mall/styles/header.css}">
@@ -35,13 +35,6 @@
                                                                                     type="password"
                                                                                     name="password"
                                                                                     placeholder="请输入你的密码"/></div>
-                    <div class="login-info">
-                        验证码:&nbsp;
-                        <input class="login-info-input verify-code" type="text" name="verifyCode"
-                               placeholder="请输入验证码" id="verifyCode"/>
-                        <img alt="单击图片刷新！" style="top: 16px;position: relative;" th:src="@{/common/mall/kaptcha}"
-                             onclick="this.src='/common/mall/kaptcha?d='+new Date()*1">
-                    </div>
                 </div>
                 <div class="login_submit">
                     <input class="submit" type="submit" onclick="login()" value="立即登录">
@@ -71,13 +64,13 @@
             });
             return false;
         }
-        var verifyCode = $("#verifyCode").val();
-        if (!validLength(verifyCode, 5)) {
-            swal('请输入正确的验证码', {
-                icon: "error",
-            });
-            return false;
-        }
+        // var verifyCode = $("#verifyCode").val();
+        // if (!validLength(verifyCode, 5)) {
+        //     swal('请输入正确的验证码', {
+        //         icon: "error",
+        //     });
+        //     return false;
+        // }
         //验证
         var params = $("#loginForm").serialize();
         var url = '/login';
@@ -93,7 +86,6 @@
                         icon: "error",
                     });
                 }
-                ;
             },
             error: function () {
                 swal("操作失败", {

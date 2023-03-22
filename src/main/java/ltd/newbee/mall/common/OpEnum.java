@@ -46,5 +46,21 @@ public enum OpEnum {
 				}
 				return null;
 		}
+		public static OpEnum value(String op) {
+				for (OpEnum opEnum : OpEnum.values()) {
+						if (opEnum.getOp().equals(op)) {
+								return opEnum;
+						}
+				}
+				return null;
+		}
+		public static OpEnum getOp(String desc) {
+				for (OpEnum opEnum : OpEnum.values()) {
+						if (opEnum.getDesc().equals(desc)) {
+								return opEnum;
+						}
+				}
+				return null;
+		}
 		
 }

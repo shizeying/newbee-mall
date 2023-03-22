@@ -14,7 +14,7 @@ newbee-mall 项目是一套电商系统，包括 newbee-mall 商城系统及 new
 | [spring-boot-2.6.x](https://github.com/newbee-ltd/newbee-mall/tree/spring-boot-2.6.x) | 2.6.3               |
 | [main](https://github.com/newbee-ltd/newbee-mall)            | 2.7.3               |
 
-新蜂商城线上预览地址：[http://mall.newbee.ltd](http://mall.newbee.ltd?from=github)，账号可自行注册。
+电商商城线上预览地址：[http://mall.newbee.ltd](http://mall.newbee.ltd?from=github)，账号可自行注册。
 
 **坚持不易，如果觉得项目还不错的话可以给项目一个 Star 吧，也是对我自 2019 年开始一直更新这个项目的一种鼓励啦，谢谢各位的支持。**
 
@@ -30,7 +30,7 @@ newbee-mall 项目是一套电商系统，包括 newbee-mall 商城系统及 new
 
 ![](https://raw.githubusercontent.com/newbee-ltd/newbee-mall-vue-app/master/static-files/newbee-mall.png)
 
-## newbee-mall （新蜂商城）系列项目概览
+## newbee-mall （电商商城）系列项目概览
 
 ![newbee-mall-course-2022](https://github.com/newbee-ltd/newbee-mall-cloud/raw/main/static-files/newbee-mall-course-2022.png)
 
@@ -70,37 +70,37 @@ newbee-mall 项目是一套电商系统，包括 newbee-mall 商城系统及 new
 - [Thymeleaf 语法详解及编码实践](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
 - [Spring Boot 实践之数据库操作](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
 - [Spring Boot 实践之整合 Mybatis 操作数据库](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
-- [项目初体验：启动和使用新蜂商城](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
-- [新蜂商城功能模块和流程设计详解](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
+- [项目初体验：启动和使用电商商城](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
+- [电商商城功能模块和流程设计详解](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
 - [前端页面设计及技术选型](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
 - [页面布局制作及跳转逻辑实现](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
 - [Spring Boot 实现验证码功能](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
-- [新蜂商城后台管理系统登录功能实现](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
+- [电商商城后台管理系统登录功能实现](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
 - [登陆拦截器设置并完善身份验证](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
 - [通用分页功能设计与开发实践](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
 - [jqGrid 插件整合制作分页效果](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
 - [Spring Boot 实践之文件上传处理-1](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
 - [Spring Boot 实践之文件上传处理-2](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
-- [新蜂商城轮播图管理模块开发](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
-- [新蜂商城分类管理模块开发-1](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
-- [新蜂商城分类管理模块开发-2](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
-- [新蜂商城商品类目三级联动功能实现](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
+- [电商商城轮播图管理模块开发](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
+- [电商商城分类管理模块开发-1](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
+- [电商商城分类管理模块开发-2](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
+- [电商商城商品类目三级联动功能实现](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
 - [富文本编辑器 wangEditor 介绍及整合详解](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
-- [新蜂商城商品编辑页面制作](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
-- [新蜂商城商品添加功能实现](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
-- [新蜂商城商品管理模块功能实现](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
-- [新蜂商城首页制作-1](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
-- [新蜂商城首页制作-2](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
-- [新蜂商城首页模块配置及功能完善](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
-- [新蜂商城会员的注册/登录功能实现](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
-- [新蜂商城搜索商品功能实现](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
-- [新蜂商城购物车功能实现](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
-- [新蜂商城订单确认页和订单生成功能实践](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
-- [新蜂商城个人订单列表和订单详情页制作](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
-- [新蜂商城订单流程功能完善](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
+- [电商商城商品编辑页面制作](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
+- [电商商城商品添加功能实现](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
+- [电商商城商品管理模块功能实现](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
+- [电商商城首页制作-1](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
+- [电商商城首页制作-2](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
+- [电商商城首页模块配置及功能完善](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
+- [电商商城会员的注册/登录功能实现](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
+- [电商商城搜索商品功能实现](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
+- [电商商城购物车功能实现](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
+- [电商商城订单确认页和订单生成功能实践](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
+- [电商商城个人订单列表和订单详情页制作](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
+- [电商商城订单流程功能完善](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
 - [课程总结及展望](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
 - [Spring Boot中的事务处理](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
-- [新蜂商城错误页面制作](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
+- [电商商城错误页面制作](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
 - [常见问题汇总讲解](https://juejin.cn/book/6844733814074245133?suid=1996368849416216&source=android)
 
 ## 联系作者

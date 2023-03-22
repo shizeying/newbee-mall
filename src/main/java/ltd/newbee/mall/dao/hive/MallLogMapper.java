@@ -2,6 +2,7 @@ package ltd.newbee.mall.dao.hive;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import java.util.List;
+import ltd.newbee.mall.controller.vo.LineVO;
 import ltd.newbee.mall.entity.MallLogDO;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -27,4 +28,6 @@ public interface MallLogMapper extends BaseMapper<MallLogDO> {
 		 * @return {@link List}<{@link MallLogDO}>
 		 */
 		List<MallLogDO> selectByUserName(String userName);
+		
+		List<MallLogDO> selectAll();
 }

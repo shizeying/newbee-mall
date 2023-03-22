@@ -8,6 +8,8 @@
  */
 package ltd.newbee.mall.config;
 
+import cn.hutool.core.io.resource.ClassPathResource;
+import java.net.URL;
 import ltd.newbee.mall.common.Constants;
 import ltd.newbee.mall.interceptor.AdminLoginInterceptor;
 import ltd.newbee.mall.interceptor.NewBeeMallCartNumberInterceptor;

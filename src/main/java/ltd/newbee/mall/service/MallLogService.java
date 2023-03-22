@@ -1,6 +1,7 @@
 package ltd.newbee.mall.service;
 
 import java.util.List;
+import ltd.newbee.mall.controller.vo.LineVO;
 import ltd.newbee.mall.entity.MallLogDO;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -27,4 +28,9 @@ public interface MallLogService extends IService<MallLogDO> {
 		 */
 		List<MallLogDO> selectByUserName(String userName);
 		
+		LineVO line();
+		
+		LineVO bar();
+		
+		LineVO pie();
 }
